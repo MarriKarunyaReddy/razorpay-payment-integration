@@ -8,7 +8,6 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-
 export default function ProductPage() {
     return (
         <div className="p-4">
@@ -48,17 +47,12 @@ export default function ProductPage() {
                 originalPrice={17599}
                 imageUrl="https://fossil.scene7.com/is/image/FossilPartners/JR1401_main?$sfcc_fos_large$"
             />
-            
-            
-            </div>
-            
-        </div>
+</div>
+ </div>
     );
 }
-
 function ProductCard({ title, price, originalPrice, imageUrl }) {
     const [amount, setAmount] = useState(price);
-
     const handlePayment = async () => {
         try {
             const res = await fetch(`${import.meta.env.VITE_BACKEND_HOST_URL}/api/payment/order`, {
@@ -70,7 +64,6 @@ function ProductCard({ title, price, originalPrice, imageUrl }) {
                     amount
                 })
             });
-
             const data = await res.json();
             console.log(data);
             handlePaymentVerify(data.data)
@@ -118,7 +111,6 @@ function ProductCard({ title, price, originalPrice, imageUrl }) {
         const rzp1 = new window.Razorpay(options);
         rzp1.open();
     }
-
     return (
         <Card className="bg-[#222f3e] text-white">
             <CardHeader className="relative h-64 bg-[#2C3A47]">
